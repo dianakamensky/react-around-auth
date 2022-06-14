@@ -26,7 +26,7 @@ class Login extends React.Component {
     auth
       .authorize(this.state.email, this.state.password)
       .then((data) => {
-        if (data.jwt) {
+        if (data.token) {
           this.setState(
             {
               email: "",
@@ -45,33 +45,39 @@ class Login extends React.Component {
   render() {
     return (
       <div className="logister">
-        <h1 className="logister__title">Log In</h1>
-        <form className="logister__form">
-          <label>Email</label>
-          <input
-            name="email"
-            type="email"
-            value={this.state.email}
-            onChange={this.handleChange}
-          />
-          <label>Password</label>
-          <input
-            name="password"
-            type="password"
-            value={this.state.password}
-            onChange={this.handleChange}
-          />
-        </form>
-        <div className="logister__button-container">
-          <button onClick={this.handleSubmit} className="logister__link">
-            Log In
-          </button>
-        </div>
-        <div className="logister__signup">
-          <p>Not a member yet?</p>
-          <Link to="register" className="logister__register-link">
-            Sign up here!
-          </Link>
+        <div className="logister__main">
+          <h1 className="logister__title">Log In</h1>
+          <form className="logister__form">
+            <input
+              className="logister__form-input"
+              name="email"
+              type="email"
+              value={this.state.email}
+              onChange={this.handleChange}
+              placeholder="Email"
+            />
+            <input
+              className="logister__form-input"
+              name="password"
+              type="password"
+              value={this.state.password}
+              onChange={this.handleChange}
+              placeholder="Password"
+            />
+          </form>
+          <div className="logister__button-container">
+            <button onClick={this.handleSubmit} className="logister__link">
+              Log In
+            </button>
+          </div>
+          <div className="logister__switch">
+            <p>
+              Not a member yet?{" "}
+              <Link to="register" className="logister__switch-link">
+                Sign up here!
+              </Link>
+            </p>
+          </div>
         </div>
       </div>
     );

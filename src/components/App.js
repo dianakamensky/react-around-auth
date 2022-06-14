@@ -113,13 +113,12 @@ function App() {
   return (
     <CurrentUserContext.Provider value={currentUser}>
       <Header img={Logo} alt="Around the U.S" />
-
       <Switch>
         <Route path="/login">
-          <Login></Login>
+          <Login />
         </Route>
         <Route path="/register">
-          <Register></Register>
+          <Register />
         </Route>
 
         <ProtectedRoute exact path="/">

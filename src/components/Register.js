@@ -1,5 +1,7 @@
-import React, { Button } from "react";
-import { Link } from "react-router-dom";
+import React from "react";
+import { Link, withRouter } from "react-router-dom";
+import * as auth from "../auth.js";
+import InfoTooltip from "./InfoTooltip.js";
 
 class Register extends React.Component {
   constructor(props) {
@@ -7,6 +9,8 @@ class Register extends React.Component {
     this.state = {
       email: "",
       password: "",
+      isModalWindowOpen: false,
+      success: false,
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -18,40 +22,68 @@ class Register extends React.Component {
     });
   }
 
+  handleSubmit = (e) => {
+    e.preventDefault();
+    auth.register(this.state.email, this.state.password).then((res) => {
+      this.setState({
+        isModalWindowOpen: true,
+        success: res.status < 300,
+      });
+    });
+  };
+
+  closeModalWindow = () => {
+    this.setState({ isModalWindowOpen: false });
+    if (this.state.success) {
+      this.props.history.push("/login");
+    }
+  };
+
   render() {
     return (
       <div className="logister">
-        <h1 className="logister__title">Sign Up</h1>
-        <form className="logister__form">
-          <label>Email</label>
-          <input
-            name="email"
-            type="email"
-            value={this.state.email}
-            onChange={this.handleChange}
-          />
-          <label>Password</label>
-          <input
-            name="password"
-            type="password"
-            value={this.state.password}
-            onChange={this.handleChange}
-          />
-        </form>
-        <div className="logister__button-container">
-          <button onClick={this.handleSubmit} className="logister__link">
-            Sign up
-          </button>
+        <div className="logister__main">
+          <h1 className="logister__title">Sign Up</h1>
+          <form className="logister__form">
+            <input
+              className="logister__form-input"
+              name="email"
+              type="email"
+              value={this.state.email}
+              onChange={this.handleChange}
+              placeholder="Email"
+            />
+            <input
+              className="logister__form-input"
+              name="password"
+              type="password"
+              value={this.state.password}
+              onChange={this.handleChange}
+              placeholder="Password"
+            />
+          </form>
+          <div className="logister__button-container">
+            <button onClick={this.handleSubmit} className="logister__link">
+              Sign up
+            </button>
+          </div>
+          <div className="logister__switch">
+            <p>
+              Already a member?{" "}
+              <Link to="/login" className="logister__switch-link">
+                Log in here!
+              </Link>
+            </p>
+          </div>
         </div>
-        <div className="logister__login">
-          <p>Already a member?</p>
-          <Link to="login" className="logister__login-link">
-            Log in here!
-          </Link>
-        </div>
+        <InfoTooltip
+          isOpen={this.state.isModalWindowOpen}
+          success={this.state.success}
+          onClose={this.closeModalWindow}
+        />
       </div>
     );
   }
 }
 
-export default Register;
+export default withRouter(Register);

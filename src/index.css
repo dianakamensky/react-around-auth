@@ -44,7 +44,9 @@
 @import url(./blocks/logister/logister.css);
 @import url(./blocks/logister/logister__button-container.css);
 @import url(./blocks/logister/logister__form.css);
-@import url(./blocks/logister/logister__register-link.css);
-@import url(./blocks/logister/logister__signup.css);
 @import url(./blocks/logister/logister__title.css);
 @import url(./blocks/logister/logister__link.css);
+@import url(./blocks/logister/logister__main.css);
+@import url(./blocks/logister/logister__form-input.css);
+@import url(./blocks/logister/logister__switch.css);
+@import url(./blocks/logister/logister__switch-link.css);
