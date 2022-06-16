@@ -1,4 +1,6 @@
 import React from "react";
+import V from "../images/v.svg";
+import X from "../images/x.svg";
 
 function InfoTooltip({ isOpen, success, onClose }) {
   return (
@@ -9,11 +11,8 @@ function InfoTooltip({ isOpen, success, onClose }) {
           className="popup__close-btn"
           onClick={onClose}
         ></button>
-        <img
-          className="popup__icon-image"
-          src={success ? "../images/v.svg" : "../images/x.svg"}
-        ></img>
-        <p>
+        <img className="popup__icon-image" src={success ? V : X}></img>
+        <p class="popup__register-message">
           {success
             ? "Success! You have now been registered."
             : "Oops, something went wrong! Please try again."}
