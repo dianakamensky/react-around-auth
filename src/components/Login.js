@@ -1,23 +1,25 @@
-import React from "react";
-import { Link, withRouter } from "react-router-dom";
-import * as auth from "../utils/auth.js";
+import React from 'react';
+import { Link, withRouter } from 'react-router-dom';
+import * as auth from '../utils/auth.js';
 
 class Login extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      email: "",
-      password: "",
+      email: '',
+      password: '',
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
+
   handleChange(e) {
     const { name, value } = e.target;
     this.setState({
       [name]: value,
     });
   }
+
   handleSubmit(e) {
     e.preventDefault();
     if (!this.state.email || !this.state.password) {
@@ -29,13 +31,13 @@ class Login extends React.Component {
         if (data.token) {
           this.setState(
             {
-              email: "",
-              password: "",
+              email: '',
+              password: '',
             },
             () => {
               this.props.handleLogin();
-              this.props.history.push("/");
-            }
+              this.props.history.push('/');
+            },
           );
         }
       })
@@ -72,7 +74,7 @@ class Login extends React.Component {
           </div>
           <div className="logister__switch">
             <p>
-              Not a member yet?{" "}
+              Not a member yet?{' '}
               <Link to="register" className="logister__switch-link">
                 Sign up here!
               </Link>

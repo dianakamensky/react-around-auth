@@ -2,7 +2,6 @@ import React from "react";
 import AddIcon from "../images/addicon.svg";
 import EditIcon from "../images/editicon.svg";
 import Card from "./Card";
-import api from "../utils/api";
 import { CurrentUserContext } from "../contexts/CurrentUserContext";
 
 function Main({

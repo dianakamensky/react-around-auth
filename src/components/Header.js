@@ -1,7 +1,6 @@
-import { Link } from "react-router-dom";
+import { Link } from 'react-router-dom';
 
 function Header(props) {
-  console.log(props.loggedIn);
   return (
     <header className="header">
       <img className="header__title" src={props.img} alt={props.alt} />
@@ -13,9 +12,9 @@ function Header(props) {
         <Link
           to={props.navLink}
           className={`header__nav-text ${
-            props.loggedIn && "header__nav-text_main"
+            props.loggedIn && 'header__nav-text_main'
           }`}
-          onClick={() => localStorage.removeItem("jwt")}
+          onClick={() => localStorage.removeItem('jwt')}
         >
           {props.navText}
         </Link>

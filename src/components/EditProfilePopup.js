@@ -1,12 +1,12 @@
-import React from "react";
-import PopupWithForm from "./PopupWithForm";
-import { CurrentUserContext } from "../contexts/CurrentUserContext";
+import React from 'react';
+import PopupWithForm from './PopupWithForm';
+import { CurrentUserContext } from '../contexts/CurrentUserContext';
 
 function EditProfilePopup({ isOpen, onClose, onUpdateUser }) {
   const currentUser = React.useContext(CurrentUserContext);
 
-  const [name, setName] = React.useState("");
-  const [description, setDescription] = React.useState("");
+  const [name, setName] = React.useState('');
+  const [description, setDescription] = React.useState('');
 
   function handleNameChange(e) {
     setName(e.target.value);
@@ -41,7 +41,7 @@ function EditProfilePopup({ isOpen, onClose, onUpdateUser }) {
       <input
         className="popup__input popup__input_info_name"
         type="text"
-        value={name || ""}
+        value={name || ''}
         onChange={handleNameChange}
         placeholder="Name"
         name="name"
@@ -53,7 +53,7 @@ function EditProfilePopup({ isOpen, onClose, onUpdateUser }) {
       <input
         className="popup__input popup__input_info_job"
         type="text"
-        value={description || ""}
+        value={description || ''}
         onChange={handleDescriptionChange}
         placeholder="About me"
         name="about"

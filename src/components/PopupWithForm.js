@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 
 function PopupWithForm({
   isOpen,
@@ -18,7 +18,7 @@ function PopupWithForm({
   });
 
   return (
-    <div className={`popup ${isOpen ? "popup_open" : ""}`}>
+    <div className={`popup ${isOpen ? 'popup_open' : ''}`}>
       <div className="popup__message">
         <button
           type="button"
@@ -36,7 +36,7 @@ function PopupWithForm({
           <button
             type="submit"
             className={`popup__submit-btn ${
-              isValid && "popup__submit-btn_active"
+              isValid && 'popup__submit-btn_active'
             }`}
           >
             {submitText}

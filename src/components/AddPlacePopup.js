@@ -1,15 +1,15 @@
-import React from "react";
-import PopupWithForm from "./PopupWithForm";
+import React from 'react';
+import PopupWithForm from './PopupWithForm';
 
 function AddPlacePopup({ isOpen, onClose, onAddPlace }) {
-  const [caption, setCaption] = React.useState("");
-  const [link, setLink] = React.useState("");
+  const [caption, setCaption] = React.useState('');
+  const [link, setLink] = React.useState('');
 
   function handleSubmit(e) {
     e.preventDefault();
     onAddPlace({
       name: caption,
-      link: link,
+      link,
     });
   }
 
@@ -22,8 +22,8 @@ function AddPlacePopup({ isOpen, onClose, onAddPlace }) {
   }
 
   React.useEffect(() => {
-    setCaption("");
-    setLink("");
+    setCaption('');
+    setLink('');
   }, [isOpen]);
 
   return (

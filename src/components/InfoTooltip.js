@@ -1,10 +1,10 @@
-import React from "react";
-import V from "../images/v.svg";
-import X from "../images/x.svg";
+import React from 'react';
+import V from '../images/v.svg';
+import X from '../images/x.svg';
 
 function InfoTooltip({ isOpen, success, onClose }) {
   return (
-    <div className={`popup ${isOpen ? "popup_open" : ""}`}>
+    <div className={`popup ${isOpen ? 'popup_open' : ''}`}>
       <div className="popup__message">
         <button
           type="button"
@@ -12,10 +12,10 @@ function InfoTooltip({ isOpen, success, onClose }) {
           onClick={onClose}
         ></button>
         <img className="popup__icon-image" src={success ? V : X}></img>
-        <p class="popup__register-message">
+        <p className="popup__register-message">
           {success
-            ? "Success! You have now been registered."
-            : "Oops, something went wrong! Please try again."}
+            ? 'Success! You have now been registered.'
+            : 'Oops, something went wrong! Please try again.'}
         </p>
       </div>
     </div>

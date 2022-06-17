@@ -33,7 +33,7 @@ function App(props) {
 
   React.useEffect(getCards, []);
 
-  React.useEffect(initLoggedIn, [location.pathname]);
+  React.useEffect(initLoggedIn, [location.pathname, props.history]);
 
   React.useEffect(initNavText, [location.pathname]);
 
@@ -52,7 +52,6 @@ function App(props) {
 
   function initLoggedIn() {
     const jwt = localStorage.getItem("jwt");
-    console.log(jwt);
     if (jwt) {
       auth
         .getContent(jwt)

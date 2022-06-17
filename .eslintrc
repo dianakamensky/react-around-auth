@@ -1,7 +1,12 @@
 {
-  "extends": "airbnb-base",
+  "extends": ["airbnb-base",
+  "plugin:react/recommended"],
+  
   "rules": {
-    "no-underscore-dangle": ["error", { "allow": ["_id"] }]
-  }
+    "no-underscore-dangle": ["error", { "allow": ["_id", "_request", "_url", "_headers"] }]
+  },
+  "env": {
+    "browser": true,
+}
 }
 

@@ -6,7 +6,7 @@ export default class Api {
 
   _request(path, method, body) {
     return fetch(`${this._url}/${path}`, {
-      method: method,
+      method,
       headers: this._headers,
       body: JSON.stringify(body),
     }).then((res) => {
@@ -17,7 +17,7 @@ export default class Api {
     });
   }
 
-  getInitialCards(createCard) {
+  getInitialCards() {
     return this._request("/cards", "GET");
   }
 
