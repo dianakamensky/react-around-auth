@@ -54,7 +54,7 @@ function App(props) {
     const jwt = localStorage.getItem("jwt");
     if (jwt) {
       auth
-        .getContent(jwt)
+        .checkToken(jwt)
         .then((res) => {
           if (res) {
             setLoggedIn(res.data.email);
@@ -62,6 +62,7 @@ function App(props) {
           } else setLoggedIn(false);
         })
         .catch((err) => {
+          console.log(err);
           setLoggedIn(false);
         });
     } else setLoggedIn(false);

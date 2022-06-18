@@ -24,12 +24,15 @@ class Register extends React.Component {
 
   handleSubmit = (e) => {
     e.preventDefault();
-    auth.register(this.state.email, this.state.password).then((res) => {
-      this.setState({
-        isModalWindowOpen: true,
-        success: res.status < 300,
-      });
-    });
+    auth
+      .register(this.state.email, this.state.password)
+      .then((res) => {
+        this.setState({
+          isModalWindowOpen: true,
+          success: true,
+        });
+      })
+      .catch(() => this.setState({ isModalWindowOpen: true, success: false }));
   };
 
   closeModalWindow = () => {
@@ -44,7 +47,7 @@ class Register extends React.Component {
       <div className="logister">
         <div className="logister__main">
           <h1 className="logister__title">Sign Up</h1>
-          <form className="logister__form">
+          <form className="logister__form" onSubmit={this.handleSubmit}>
             <input
               className="logister__form-input"
               name="email"
@@ -63,9 +66,7 @@ class Register extends React.Component {
             />
           </form>
           <div className="logister__button-container">
-            <button onClick={this.handleSubmit} className="logister__link">
-              Sign up
-            </button>
+            <button className="logister__link">Sign up</button>
           </div>
           <div className="logister__switch">
             <p>

@@ -1,6 +1,6 @@
 import React from "react";
-import AddIcon from "../images/addicon.svg";
-import EditIcon from "../images/editicon.svg";
+import addIcon from "../images/addicon.svg";
+import editIcon from "../images/editicon.svg";
 import Card from "./Card";
 import { CurrentUserContext } from "../contexts/CurrentUserContext";
 
@@ -30,7 +30,7 @@ function Main({
           >
             <img
               className="profile__edit-avatar"
-              src={EditIcon}
+              src={editIcon}
               alt="Edit avatar"
             />
           </div>
@@ -46,7 +46,7 @@ function Main({
             >
               <img
                 className="profile__edit-icon"
-                src={EditIcon}
+                src={editIcon}
                 alt="Edit profile"
               />
             </button>
@@ -59,7 +59,7 @@ function Main({
           aria-label="Add location"
           onClick={onAddPlaceClick}
         >
-          <img className="profile__add-icon" src={AddIcon} alt="Add" />
+          <img className="profile__add-icon" src={addIcon} alt="Add" />
         </button>
       </section>
       <section className="locations">

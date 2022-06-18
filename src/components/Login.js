@@ -1,13 +1,13 @@
-import React from 'react';
-import { Link, withRouter } from 'react-router-dom';
-import * as auth from '../utils/auth.js';
+import React from "react";
+import { Link, withRouter } from "react-router-dom";
+import * as auth from "../utils/auth.js";
 
 class Login extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      email: '',
-      password: '',
+      email: "",
+      password: "",
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -31,13 +31,13 @@ class Login extends React.Component {
         if (data.token) {
           this.setState(
             {
-              email: '',
-              password: '',
+              email: "",
+              password: "",
             },
             () => {
               this.props.handleLogin();
-              this.props.history.push('/');
-            },
+              this.props.history.push("/");
+            }
           );
         }
       })
@@ -49,7 +49,7 @@ class Login extends React.Component {
       <div className="logister">
         <div className="logister__main">
           <h1 className="logister__title">Log In</h1>
-          <form className="logister__form">
+          <form className="logister__form" onSubmit={this.handleSubmit}>
             <input
               className="logister__form-input"
               name="email"
@@ -66,15 +66,13 @@ class Login extends React.Component {
               onChange={this.handleChange}
               placeholder="Password"
             />
+            <div className="logister__button-container">
+              <button className="logister__link">Log In</button>
+            </div>
           </form>
-          <div className="logister__button-container">
-            <button onClick={this.handleSubmit} className="logister__link">
-              Log In
-            </button>
-          </div>
           <div className="logister__switch">
             <p>
-              Not a member yet?{' '}
+              Not a member yet?{" "}
               <Link to="register" className="logister__switch-link">
                 Sign up here!
               </Link>

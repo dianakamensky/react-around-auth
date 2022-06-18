@@ -1,9 +1,10 @@
 {
-  "extends": ["airbnb-base",
+  "extends": ["eslint:recommended",
   "plugin:react/recommended"],
   
   "rules": {
     "no-underscore-dangle": ["error", { "allow": ["_id", "_request", "_url", "_headers"] }]
+    ,"react/prop-types": 0
   },
   "env": {
     "browser": true,
