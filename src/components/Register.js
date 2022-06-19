@@ -23,10 +23,11 @@ class Register extends React.Component {
   }
 
   handleSubmit = (e) => {
+    console.log("diana");
     e.preventDefault();
     auth
       .register(this.state.email, this.state.password)
-      .then((res) => {
+      .then(() => {
         this.setState({
           isModalWindowOpen: true,
           success: true,
@@ -64,10 +65,11 @@ class Register extends React.Component {
               onChange={this.handleChange}
               placeholder="Password"
             />
+            <div className="logister__button-container">
+              <button className="logister__link">Sign up</button>
+            </div>
           </form>
-          <div className="logister__button-container">
-            <button className="logister__link">Sign up</button>
-          </div>
+
           <div className="logister__switch">
             <p>
               Already a member?{" "}
